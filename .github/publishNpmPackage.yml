@@ -1,0 +1,46 @@
+name: Publish package on merge to main
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Get commit message
+        id: commit_msg
+        run: echo ::set-output name=message::$(git log --format=%B -n 1 $GITHUB_SHA)
+      - name: Determine version bump
+        id: version_bump
+        run: |
+          if [[ "${{ steps.commit_msg.outputs.message }}" =~ ^fix ]]; then
+            echo "::set-output name=bump::patch"
+          elif [[ "${{ steps.commit_msg.outputs.message }}" =~ ^feat ]]; then
+            echo "::set-output name=bump::minor"
+          else
+            echo "::set-output name=bump::none"
+          fi
+      - name: Bump package version
+        if: steps.version_bump.outputs.bump != 'none'
+        uses: anothrNick/github-tag-action@v1.16.1
+        with:
+          default_bump: ${{ steps.version_bump.outputs.bump }}
+          push: true
+          push_tags: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm login
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
