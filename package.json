@@ -1,0 +1,42 @@
+{
+  "name": "dev-config",
+  "version": "0.1.0",
+  "description": "Tool designed to facilitate the setup of development configurations. It includes configurations for commonly used tools like Prettier, ESLint, and TS-Config, which can be time-consuming to configure manually. By using this package, developers can quickly and easily set up their development environment without having to spend time on manual configuration.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint --config src/config/node/.eslintrc  . --ext .js",
+    "lint:fix": "eslint --config src/config/node/.eslintrc . --ext .js --fix",
+    "prettier-format": "prettier --config src/config/common/.prettierrc 'src/**/*.js' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgauthier1/dev-config.git"
+  },
+  "keywords": [
+    "node",
+    "prettier",
+    "esling",
+    "tsconfig"
+  ],
+  "author": "Laurent GAUTHIER (lgauthier1)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgauthier1/dev-config/issues"
+  },
+  "homepage": "https://github.com/lgauthier1/dev-config#readme",
+  "dependencies": {
+    "inquirer": "^9.1.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.3",
+    "standard": "^17.0.0"
+  }
+}
