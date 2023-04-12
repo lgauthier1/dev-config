@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "bin": {
     "dev-config": "src/index.js"
-  },pdate main and bin for npm)
+  },
   "scripts": {
     "start": "node src/index.js",
     "lint": "eslint --config src/config/node/.eslintrc  . --ext .js",
