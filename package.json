@@ -13,7 +13,7 @@
     "lint:fix": "eslint --config src/config/node/.eslintrc . --ext .js --fix",
     "prettier-format": "prettier --config src/config/common/.prettierrc 'src/**/*.{js,json}' --write",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest"t: husky with conventionnal commit and prettier eslint)
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,9 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "eslint": "^8.39.0",
+    "@commitlint/cli": "^17.6.0",
+    "@commitlint/config-conventional": "^17.6.0",
+    "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
