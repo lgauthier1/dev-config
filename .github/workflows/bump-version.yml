@@ -6,10 +6,18 @@ on:
       - 'main'
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      # - run: npm test
   bump-version:
     name: 'Bump Version on main'
     runs-on: ubuntu-latest
-
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
@@ -22,6 +30,9 @@ jobs:
         uses: 'phips28/gh-action-bump-version@master'
         with:
           tag-prefix: 'v'
+          minor-wording:  'add,Adds,new,feat,test'
+          major-wording:  'MAJOR,cut-major,!BREAKING CHANGE'
+          patch-wording:  'patch,fix,chore,doc,chore' 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'cat package.json'
@@ -30,3 +41,17 @@ jobs:
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
+      - name: 'Push tag'
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
