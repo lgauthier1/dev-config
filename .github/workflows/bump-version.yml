@@ -24,6 +24,10 @@ jobs:
         uses: 'actions/checkout@v2'
         with:
           ref: ${{ github.ref }}
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://npm.pkg.github.com'
       - name: 'cat package.json'
         run: cat ./package.json
       - name: 'Automated Version Bump'
@@ -46,6 +50,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
         run: npm publish --access public
-        with:
-          registry-url: 'https://registry.npmjs.org/'
 
