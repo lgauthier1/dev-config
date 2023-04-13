@@ -16,7 +16,7 @@ jobs:
       - run: npm ci
       # - run: npm test
   bump-version:
-    need: build
+    needs: build
     name: 'Bump Version on main'
     runs-on: ubuntu-latest
     steps:
@@ -24,25 +24,25 @@ jobs:
         uses: 'actions/checkout@v2'
         with:
           ref: ${{ github.ref }}
-      # - name: 'cat package.json'
-      #   run: cat ./package.json
-      # - name: 'Automated Version Bump'
-      #   id: version-bump
-      #   uses: 'phips28/gh-action-bump-version@master'
-      #   with:
-      #     tag-prefix: 'v'
-      #     minor-wording:  'add,Adds,new,feat,test'
-      #     major-wording:  'MAJOR,cut-major,!BREAKING CHANGE'
-      #     patch-wording:  'patch,fix,chore,doc,chore' 
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: 'cat package.json'
-      #   run: cat ./package.json
-      # - name: 'Output Step'
-      #   env:
-      #     NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-      #   run: echo "new tag $NEW_TAG"
-      # - name: 'Push tag'
+      - name: 'cat package.json'
+        run: cat ./package.json
+      - name: 'Automated Version Bump'
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          tag-prefix: 'v'
+          minor-wording:  'add,Adds,new,feat,test'
+          major-wording:  'MAJOR,cut-major,!BREAKING CHANGE'
+          patch-wording:  'patch,fix,chore,doc,chore' 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'cat package.json'
+        run: cat ./package.json
+      - name: 'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
+      - name: 'Push tag'
   # publish-npm:
   #   needs: bump-version
   #   runs-on: ubuntu-latest
