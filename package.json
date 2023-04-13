@@ -1,6 +1,6 @@
 {
   "name": "@lgauthier1-packages/dev-config",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Tool designed to facilitate the setup of development configurations. It includes configurations for commonly used tools like Prettier, ESLint, and TS-Config, which can be time-consuming to configure manually. By using this package, developers can quickly and easily set up their development environment without having to spend time on manual configuration.",
   "type": "module",
   "main": "src/index.js",
