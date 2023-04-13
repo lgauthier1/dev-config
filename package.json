@@ -20,7 +20,7 @@
   "keywords": [
     "node",
     "prettier",
-    "esling",
+    "eslint",
     "tsconfig"
   ],
   "author": "Laurent GAUTHIER (lgauthier1)",
