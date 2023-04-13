@@ -24,10 +24,11 @@ jobs:
         uses: 'actions/checkout@v2'
         with:
           ref: ${{ github.ref }}
-      - name: 'Setup Node.js'
-        uses: actions/setup-node@v2
+      - name: 'Setup Node.js (define registry)'
+        uses: actions/setup-node@v3
         with:
-          registry-url: 'https://npm.pkg.github.com'
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
       - name: 'cat package.json'
         run: cat ./package.json
       - name: 'Automated Version Bump'
@@ -46,8 +47,10 @@ jobs:
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
+      - name: 'Build CI tag'
+        run: npm ci
       - name: 'Push tag'
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-        run: npm publish --access public
+        run: npm publish
 
