@@ -43,9 +43,9 @@ jobs:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
       - name: 'Push tag'
-        with:
-          registry-url: 'https://registry.npmjs.org/'
-          # Defaults to the user or organization that owns the workflow file
-        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        run: npm publish --access public
+        with:
+          registry-url: 'https://registry.npmjs.org/'
+
