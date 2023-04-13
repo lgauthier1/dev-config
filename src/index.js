@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const run = async () => {
-  console.log('test 5')
+  console.log('test 2023-04-14')
   inquirer
     .prompt([
       {
