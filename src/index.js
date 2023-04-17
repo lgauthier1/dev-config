@@ -38,7 +38,7 @@ const run = async () => {
           },
           {
             name: 'commit-msg check yout commit with conventionnal commit',
-            value: 'husky-conventionnal-commit',
+            value: 'husky-conventionnal-commit'
           }
         ]
       },
@@ -54,22 +54,21 @@ const run = async () => {
       console.log('Copy files...')
       const PATH_TO_COPY = 'lga-tst'
       copyDir('src/config/common', PATH_TO_COPY)
-      
-      if(answers.project) {
+
+      if (answers.project) {
         copyDir(`src/config/${answers.project}`, PATH_TO_COPY)
       }
 
-      if(answers.husky) {
+      if (answers.husky) {
         createDir(`${PATH_TO_COPY}/.husky`)
-        if(answers.husky.includes('husky-lint-format')) {
+        if (answers.husky.includes('husky-lint-format')) {
           copyDir(`.husky/pre-commit`, `${PATH_TO_COPY}/.husky`)
         }
-        if(answers.husky.includes('husky-conventionnal-commit')) {
+        if (answers.husky.includes('husky-conventionnal-commit')) {
           copyDir(`.husky/commit-msg`, `${PATH_TO_COPY}./husky`)
-          copyFile('.commitlintrc.json', '${PATH_TO_COPY}/.commitlintrc.json')
+          copyFile('.commitlintrc.json', `${PATH_TO_COPY}/.commitlintrc.json`)
         }
       }
-
     })
     .catch((error) => {
       console.error('Error:', error)
@@ -96,7 +95,6 @@ const run = async () => {
       await copyFile(srcPath, destPath)
     }
   }
-
 }
 
 run()
