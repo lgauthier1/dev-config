@@ -34,7 +34,7 @@
     "inquirer": "^9.1.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.0",
+    "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
