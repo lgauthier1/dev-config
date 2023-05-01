@@ -39,5 +39,4 @@ export class FileManager {
       await this.copyFile(entry.name, src, dest)
     })
   }
-
 }

@@ -52,7 +52,8 @@ const run = async () => {
       console.log('Answers:', answers)
       if (!answers.confirmed) return
       await fm.copyDirAndContent('src/config/common', '.')
-      if (answers.project) await fm.copyDirAndContent(`src/config/${answers.project}`, '.')
+      if (answers.project)
+        await fm.copyDirAndContent(`src/config/${answers.project}`, '.')
 
       if (answers.husky.lenght) {
         await fm.createDestDir('.husky')
