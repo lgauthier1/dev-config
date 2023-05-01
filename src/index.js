@@ -1,14 +1,14 @@
 #! /usr/bin/env node
 import inquirer from 'inquirer'
-import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import fs from 'fs/promises'
+import { dirname } from 'path'
+import { FileManager } from './lib/fileManager.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const run = async () => {
-  console.log('test 2023-04-14')
+  const fm = new FileManager(__dirname, 'lga-dev')
   inquirer
     .prompt([
       {
@@ -45,56 +45,29 @@ const run = async () => {
       {
         type: 'confirm',
         name: 'confirmed',
-        message: 'Are you sure?'
+        message: 'Apply change?'
       }
     ])
-    .then((answers) => {
+    .then(async (answers) => {
       console.log('Answers:', answers)
       if (!answers.confirmed) return
-      console.log('Copy files...')
-      const PATH_TO_COPY = 'lga-tst'
-      copyDir('src/config/common', PATH_TO_COPY)
+      await fm.copyDirAndContent('src/config/common', '.')
+      if (answers.project) await fm.copyDirAndContent(`src/config/${answers.project}`, '.')
 
-      if (answers.project) {
-        copyDir(`src/config/${answers.project}`, PATH_TO_COPY)
-      }
-
-      if (answers.husky) {
-        createDir(`${PATH_TO_COPY}/.husky`)
+      if (answers.husky.lenght) {
+        await fm.createDestDir('.husky')
         if (answers.husky.includes('husky-lint-format')) {
-          copyDir(`.husky/pre-commit`, `${PATH_TO_COPY}/.husky`)
+          await fm.copyFile('pre-commit', '.husky', '.husky')
         }
         if (answers.husky.includes('husky-conventionnal-commit')) {
-          copyDir(`.husky/commit-msg`, `${PATH_TO_COPY}./husky`)
-          copyFile('.commitlintrc.json', `${PATH_TO_COPY}/.commitlintrc.json`)
+          await fm.copyFile('commit-msg', '.husky', '.husky')
+          await fm.copyFile('.commitlintrc.json', '.', '.')
         }
       }
     })
     .catch((error) => {
       console.error('Error:', error)
     })
-
-  // function to create a directory form the given path
-  const createDir = async (path) => {
-    await fs.mkdir(path, { recursive: true })
-  }
-
-  const copyFile = async (src, dest) => {
-    await fs.copyFile(src, dest)
-  }
-
-  // function to copy a directory to a destination
-  const copyDir = async (src, dest) => {
-    src = path.join(__dirname, '..', src)
-    dest = path.join(process.cwd(), dest)
-    await createDir(dest)
-    const entries = await fs.readdir(src, { withFileTypes: true })
-    for (const entry of entries) {
-      const srcPath = path.join(src, entry.name)
-      const destPath = path.join(dest, entry.name)
-      await copyFile(srcPath, destPath)
-    }
-  }
 }
 
 run()

@@ -31,7 +31,8 @@
   },
   "homepage": "https://github.com/lgauthier1/dev-config#readme",
   "dependencies": {
-    "inquirer": "^9.1.5"
+    "inquirer": "^9.1.5",
+    "jest": "^29.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.0",
