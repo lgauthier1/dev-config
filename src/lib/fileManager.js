@@ -39,4 +39,17 @@ export class FileManager {
       await this.copyFile(entry.name, src, dest)
     })
   }
+
+  async readPackageJson() {
+    const realPackagePath = path.join(this.rootDest, 'package.json')
+    console.log(realPackagePath)
+    const jsonFile = await fs.readFile(realPackagePath)
+    return JSON.parse(jsonFile)
+  }
+
+  async writePackageJson(newFile) {
+    const realPackagePath = path.join(this.rootDest, 'package.json')
+    const jsonData = JSON.stringify(newFile)
+    await fs.writeFile(realPackagePath, jsonData)
+  }
 }
