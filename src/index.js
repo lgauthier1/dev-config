@@ -14,15 +14,15 @@ const run = async () => {
     .prompt([
       {
         type: 'list',
-        message: 'Select your project type:',
+        message: '💻 Select your project type:',
         name: 'project',
         choices: [
           {
-            name: '💻 Node.js (prettier + eslint + *ignore)',
+            name: 'Node.js (prettier + eslint + *ignore)',
             value: 'node'
           },
           {
-            name: '🚀 Node.js typescript - Coming soon',
+            name: 'Node.js typescript - Coming soon',
             value: 'node-ts',
             disabled: true
           }
@@ -102,7 +102,7 @@ const run = async () => {
       }
 
       if (answers.packageJSON) {
-        console.log('Save updated package.json')
+        // console.log('Save updated package.json')
         await fm.writePackageJson(packageJSON)
       }
       console.log(" 🚀 Don't forget to run npm install or yarn install")
