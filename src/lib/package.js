@@ -21,8 +21,11 @@ export const updatePackage = (jsonFile, scripts = {}, devDependencies = {}) => {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   console.log(jsonFile)
 >>>>>>> 8574016 (feat/husky auto setup (#5))
+=======
+>>>>>>> 7b14206 (fix: handle json and remove logs)
   return jsonFile
 }
