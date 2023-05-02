@@ -65,11 +65,11 @@ const run = async () => {
       if (answers.project)
         await fm.copyDirAndContent(`src/config/${answers.project}`, '.')
       const scripts = {
-        lint: 'eslint --config src/config/node/.eslintrc  . --ext .js',
+        lint: 'eslint  . --ext .js',
         'lint:fix':
-          'eslint --config src/config/node/.eslintrc . --ext .js --fix',
+          'eslint . --ext .js --fix',
         'prettier-format':
-          "prettier --config src/config/common/.prettierrc 'src/**/*.js' --write"
+          "prettier '**/*.{js,json}' --write"
       }
       const devDependencies = {
         eslint: '^8.33.0',
@@ -80,7 +80,6 @@ const run = async () => {
       }
       packageJSON = updatePackage(packageJSON, scripts, devDependencies)
       if (answers.husky.length) {
-        console.log('HUSKY!!!')
         await fm.createDestDir('.husky')
         const scripts = {
           prepare: 'husky install'
@@ -108,6 +107,7 @@ const run = async () => {
         console.log('Save updated package.json')
         await fm.writePackageJson(packageJSON)
       }
+      console.log('⚠️ Don\'t forget to run npm install or yarn install')
     })
     .catch((error) => {
       console.error('Error:', error)

@@ -42,7 +42,6 @@ export class FileManager {
 
   async readPackageJson() {
     const realPackagePath = path.join(this.rootDest, 'package.json')
-    console.log(realPackagePath)
     const jsonFile = await fs.readFile(realPackagePath)
     return JSON.parse(jsonFile)
   }
