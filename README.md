@@ -9,7 +9,7 @@ npx @lgauthier1-packages/dev-config@lastest
 
 # Demo
 
-![](https://github.com/lgauthier1/dev-config/demo.gif)
+![](https://raw.githubusercontent.com/lgauthier1/dev-config/main/demo.gif)
 
 # Roadmap
 
