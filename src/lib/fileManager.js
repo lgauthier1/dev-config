@@ -26,10 +26,6 @@ export class FileManager {
     await this.createDestDir(destDir)
     const realSrcPath = path.join(this.dirname, srcDir, file)
     const realDestPath = path.join(this.rootDest, destDir, file)
-<<<<<<< HEAD
-=======
-    console.log(`Copy ${realSrcPath} => ${realDestPath}`)
->>>>>>> 8574016 (feat/husky auto setup (#5))
     await fs.copyFile(realSrcPath, realDestPath)
   }
 
@@ -45,10 +41,6 @@ export class FileManager {
 
   async readPackageJson() {
     const realPackagePath = path.join(this.rootDest, 'package.json')
-<<<<<<< HEAD
-=======
-    console.log(realPackagePath)
->>>>>>> 8574016 (feat/husky auto setup (#5))
     const jsonFile = await fs.readFile(realPackagePath)
     return JSON.parse(jsonFile)
   }
