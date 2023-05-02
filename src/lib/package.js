@@ -16,6 +16,5 @@ export const updatePackage = (jsonFile, scripts = {}, devDependencies = {}) => {
     jsonFile = mergeKeys(jsonFile, 'devDependencies', devDependencies)
   }
 
-  console.log(jsonFile)
   return jsonFile
 }

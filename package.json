@@ -11,7 +11,7 @@
     "start": "node src/index.js",
     "lint": "eslint --config src/config/node/.eslintrc  . --ext .js",
     "lint:fix": "eslint --config src/config/node/.eslintrc . --ext .js --fix",
-    "prettier-format": "prettier --config src/config/common/.prettierrc 'src/**/*.js' --write",
+    "prettier-format": "prettier --config src/config/common/.prettierrc 'src/**/*.{js,json}' --write",
     "prepare": "husky install",
     "test": "jest"
   },
