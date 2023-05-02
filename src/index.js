@@ -18,11 +18,11 @@ const run = async () => {
         name: 'project',
         choices: [
           {
-            name: '💻 Node.js (prettier + eslint + *ignore)',
+            name: 'Node.js (prettier + eslint + *ignore)',
             value: 'node'
           },
           {
-            name: '🚀 Node.js typescript - Coming soon',
+            name: 'Node.js typescript - Coming soon',
             value: 'node-ts',
             disabled: true
           }
