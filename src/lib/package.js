@@ -1,6 +1,6 @@
 const mergeKeys = (jsonFile, key, obj) => {
   if (!Object.keys(jsonFile).includes(key)) {
-    console.warn(`Creation of scripts ${key} in package.json`)
+    // console.warn(`Creation of ${key} in package.json`)
     jsonFile[key] = {}
   }
   jsonFile[key] = { ...jsonFile[key], ...obj }
