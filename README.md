@@ -16,8 +16,8 @@ npx @lgauthier1-packages/dev-config@lastest
 - [X] FEAT: Update package.json dependencies & script
 - [X] FEAT: Option to enable conventionnal-commit commit hook
 - [X] FEAT: Option to enable prettier & eslint pre-commit hook
+- [X] FEAT: Add advice after execution
 - [ ] TECH: Write tests and run tests
-- [ ] FEAT: Add advice after execution
 - [ ] ...
 
 # C.I.C.D.

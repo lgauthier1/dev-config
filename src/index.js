@@ -66,10 +66,8 @@ const run = async () => {
         await fm.copyDirAndContent(`src/config/${answers.project}`, '.')
       const scripts = {
         lint: 'eslint  . --ext .js',
-        'lint:fix':
-          'eslint . --ext .js --fix',
-        'prettier-format':
-          "prettier '**/*.{js,json}' --write"
+        'lint:fix': 'eslint . --ext .js --fix',
+        'prettier-format': "prettier '**/*.{js,json}' --write"
       }
       const devDependencies = {
         eslint: '^8.33.0',
@@ -107,7 +105,7 @@ const run = async () => {
         console.log('Save updated package.json')
         await fm.writePackageJson(packageJSON)
       }
-      console.log('⚠️ Don\'t forget to run npm install or yarn install')
+      console.log("⚠️ Don't forget to run npm install or yarn install")
     })
     .catch((error) => {
       console.error('Error:', error)
