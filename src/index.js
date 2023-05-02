@@ -97,7 +97,6 @@ const run = async () => {
           await fm.copyFile('commit-msg', '.husky', '.husky')
           await fm.copyFile('.commitlintrc.json', '.', '.')
         }
-        console.log('updatePackage (Husky)')
         packageJSON = updatePackage(packageJSON, scripts, devDependencies)
       }
 
