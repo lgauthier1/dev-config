@@ -1,10 +1,14 @@
 {
   "name": "@lgauthier1-packages/dev-config",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "version": "0.11.0",
 =======
   "version": "0.6.0",
 >>>>>>> 41cd09c (chore(deps-dev): bump @commitlint/cli from 17.6.0 to 17.6.1 (#4))
+=======
+  "version": "0.10.0",
+>>>>>>> 149b22a (fix: synchro version with main)
   "description": "Tool designed to facilitate the setup of development configurations. It includes configurations for commonly used tools like Prettier, ESLint, and TS-Config, which can be time-consuming to configure manually. By using this package, developers can quickly and easily set up their development environment without having to spend time on manual configuration.",
   "type": "module",
   "main": "src/index.js",
