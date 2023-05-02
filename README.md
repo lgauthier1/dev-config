@@ -7,6 +7,10 @@ Tool designed to facilitate the setup of development configurations. It includes
 npx @lgauthier1-packages/dev-config@lastest
 ```
 
+# Demo
+
+![](https://github.com/lgauthier1/dev-config/demo.gif)
+
 # Roadmap
 
 - [X] FEAT: Copy a simple JSON config for prettier, eslint, and gitignore.
