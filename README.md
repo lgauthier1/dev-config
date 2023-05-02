@@ -13,10 +13,11 @@ npx @lgauthier1-packages/dev-config@lastest
 - [X] TECH: Enable eslint and prettier for this repository.
 - [X] FEAT: Publish this repository to npm for easy use with npx.
 - [X] TECH: Set up a CI/CD pipeline to automatically bump and publish to npm.
-- [ ] FEAT: Update package.json dependencies & script
-- [ ] FEAT: Option to enable conventionnal-commit commit hook
-- [ ] FEAT: Option to enable prettier & eslint pre-commit hook
+- [X] FEAT: Update package.json dependencies & script
+- [X] FEAT: Option to enable conventionnal-commit commit hook
+- [X] FEAT: Option to enable prettier & eslint pre-commit hook
 - [ ] TECH: Write Tests and run test
+- [ ] FEAT: Add advice after execution
 - [ ] ...
 
 # C.I.C.D.
