@@ -29,10 +29,10 @@ Package deployment is automated based on events on the main branch:
 
 ℹ️   SETUP: 
 
-Some settings are required to enable the C.I.C.D:
+If you fork this repository, some settings are required to enable the C.I.C.D:
 - Add npm `NPM_TOKEN` in https://github.com/{GITHUB_USER}/{YOUR_REPO}/settings/secrets/actions
 - Add `Read and write permission` in Workflow permissions section https://github.com/{GITHUB_USER}/{YOUR_REPO}/settings/actions
 
 # Inspiration
 
-- [https://github.com/benawad/tsconfig.json](Benawad https://youtu.be/0xjfkl9nODQ)
+- https://github.com/benawad/tsconfig.json => https://youtu.be/0xjfkl9nODQ @benawad)
