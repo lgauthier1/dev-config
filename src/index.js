@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const run = async () => {
-  const fm = new FileManager(__dirname, 'lga-dev')
+  const fm = new FileManager(__dirname)
   inquirer
     .prompt([
       {
@@ -22,7 +22,7 @@ const run = async () => {
             value: 'node'
           },
           {
-            name: 'Node.js typescript',
+            name: 'Node.js typescript - Coming soon',
             value: 'node-ts',
             disabled: true
           }
@@ -47,16 +47,15 @@ const run = async () => {
         type: 'confirm',
         name: 'packageJSON',
         message:
-          'Would you lile update/override package.json (scripts / devDependencies) ?'
+          'Would you like to update/override package.json (scripts/devDependencies) ?'
       },
       {
         type: 'confirm',
         name: 'confirmed',
-        message: 'Apply change?'
+        message: 'Apply the selected configuration ?'
       }
     ])
     .then(async (answers) => {
-      console.log('Answers:', answers)
       if (!answers.confirmed) return
       let packageJSON = {}
       if (answers.packageJSON) {
