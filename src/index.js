@@ -18,11 +18,11 @@ const run = async () => {
         name: 'project',
         choices: [
           {
-            name: 'Node.js (prettier + eslint + *ignore)',
+            name: '💻 Node.js (prettier + eslint + *ignore)',
             value: 'node'
           },
           {
-            name: 'Node.js typescript - Coming soon',
+            name: '🚀 Node.js typescript - Coming soon',
             value: 'node-ts',
             disabled: true
           }
@@ -30,7 +30,7 @@ const run = async () => {
       },
       {
         type: 'checkbox',
-        message: 'Setup husky:',
+        message: '🐕 Setup husky:',
         name: 'husky',
         choices: [
           {
@@ -47,12 +47,12 @@ const run = async () => {
         type: 'confirm',
         name: 'packageJSON',
         message:
-          'Would you like to update/override package.json (scripts/devDependencies) ?'
+          '💪 Would you like to update/override package.json (scripts/devDependencies) ?'
       },
       {
         type: 'confirm',
         name: 'confirmed',
-        message: 'Apply the selected configuration ?'
+        message: '❓ Apply the selected configuration ?'
       }
     ])
     .then(async (answers) => {
@@ -105,7 +105,7 @@ const run = async () => {
         console.log('Save updated package.json')
         await fm.writePackageJson(packageJSON)
       }
-      console.log("⚠️ Don't forget to run npm install or yarn install")
+      console.log(" 🚀 Don't forget to run npm install or yarn install")
     })
     .catch((error) => {
       console.error('Error:', error)

@@ -26,7 +26,6 @@ export class FileManager {
     await this.createDestDir(destDir)
     const realSrcPath = path.join(this.dirname, srcDir, file)
     const realDestPath = path.join(this.rootDest, destDir, file)
-    console.log(`Copy ${realSrcPath} => ${realDestPath}`)
     await fs.copyFile(realSrcPath, realDestPath)
   }
 
