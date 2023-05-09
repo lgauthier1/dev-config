@@ -4,7 +4,7 @@ Tool designed to facilitate the setup of development configurations. It includes
 # Usage 
 
 ```bash
-npx @lgauthier1-packages/dev-config@lastest
+npx @lgauthier1-packages/dev-config@latest
 ```
 
 # Demo
